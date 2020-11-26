@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
-}
+/** @format */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  max-width: 1200px;
+  margin: auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+  list-style: none;
+  padding: 0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  all: unset;
+  cursor: pointer;
+}
+input {
+  padding: 2px 8px;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+.view {
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo-image {
+  padding: 8px 8px;
+  max-height: 40px;
+}
+.logo-text {
+  color: white;
+  font-size: 2rem;
+}
+.input {
+  margin: 0 10px 0 15px;
+  height: 1.5rem;
+}
+.search-image {
+  padding: 8px 0px;
+  max-height: 25px;
+}
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.item {
+  display: flex;
+  width: 580px;
+  /* border: 1px solid blue; */
+  cursor: pointer;
+  box-shadow: 3px 3px 5px 0px rgba(156, 156, 156, 1);
+  padding: 5px;
+  margin: 5px;
+}
+.description {
+  padding: 5px 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.title {
+  color: black;
+  font-weight: 600;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.channel {
+  color: darkgray;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+}
+.content-description-title {
+  padding: 5px 5px;
+  font-size: 1.5rem;
+  color: #000000;
+  font-weight: 600;
+}
+.content-description-channel {
+  padding: 5px 5px;
+  font-size: 1.2rem;
+  color: #000000;
+  font-weight: 600;
+}
+.content-description-text {
+  padding: 5px 5px;
+  color: darkgray;
 }
