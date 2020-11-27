@@ -9,41 +9,27 @@ import Content from "./components/content";
 class App extends Component {
   state = {
     result: [],
-    item: {},
+    item: null,
     url: "",
   };
 
   componentDidMount() {
-    const baseUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyA8Ke0jkED3XtMUEaliGABP93RdS_C5A40`;
-
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(baseUrl, requestOptions)
-      .then((response) => response.text())
-      .then((result) => {
-        console.log(this.result);
-        this.setState({ result: JSON.parse(result).items });
-      })
-      .catch((error) => console.log("error", error));
+    this.props.youtube.mostPopular().then((result) => {
+      this.setState({ result });
+    });
   }
 
-  handleSearch = (keyword) => {
-    const baseUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResult=25&q=${keyword}&key=AIzaSyA8Ke0jkED3XtMUEaliGABP93RdS_C5A40`;
+  handleMain = () => {
+    // Go to main
+    this.props.youtube.mostPopular().then((result) => {
+      this.setState({ item: null, url: "", result });
+    });
+  };
 
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(baseUrl, requestOptions)
-      .then((response) => response.text())
-      .then((result) => {
-        this.setState({ result: JSON.parse(result).items });
-      })
-      .catch((error) => console.log("error", error));
+  handleSearch = (query) => {
+    this.props.youtube.search(query).then((result) => {
+      this.setState({ item: null, url: "", result });
+    });
   };
 
   handleSelect = (item) => {
@@ -54,7 +40,7 @@ class App extends Component {
     } else {
       videoId = item.id;
     }
-    let url = `http://www.youtube.com/embed/${videoId}?enablejsapi=1&amp;origin=http://example.com`;
+    let url = `http://www.youtube.com/embed/${videoId}`;
 
     this.setState({ item, url });
 
@@ -64,10 +50,20 @@ class App extends Component {
   render() {
     return (
       <>
-        <Search onSearch={this.handleSearch}></Search>
-        <div className="view">
-          <Content item={this.state.item} url={this.state.url}></Content>
-          <Lists onSelect={this.handleSelect} lists={this.state.result}></Lists>
+        <Search onSearch={this.handleSearch} goMain={this.handleMain}></Search>
+        <div className="content">
+          {this.state.item && (
+            <div className="detail">
+              <Content item={this.state.item} url={this.state.url}></Content>
+            </div>
+          )}
+          <div className="lists">
+            <Lists
+              lists={this.state.result}
+              onSelect={this.handleSelect}
+              display={this.state.item ? "list" : "grid"}
+            ></Lists>
+          </div>
         </div>
       </>
     );

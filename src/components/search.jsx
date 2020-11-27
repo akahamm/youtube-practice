@@ -16,12 +16,16 @@ class Search extends Component {
     }
   };
 
+  goMain = () => {
+    this.props.goMain();
+  };
+
   render() {
     return (
-      <nav className="navbar">
-        <button className="logo">
-          <img className="logo-image" src="/images/logo.png" alt="" />
-          <span className="logo-text">Hamm tube</span>
+      <nav className="header">
+        <button className="logo" onClick={this.goMain}>
+          <img className="image" src="/images/logo.png" alt="" />
+          <h1 className="title">Youtube</h1>
         </button>
         <input
           className="input"
@@ -31,7 +35,7 @@ class Search extends Component {
           onKeyPress={this.onKeyPress}
         />
         <button className="search" onClick={this.onSearch}>
-          <img className="search-image" src="/images/search.png" alt="" />
+          <img className="searchImg" src="/images/search.png" alt="" />
         </button>
       </nav>
     );

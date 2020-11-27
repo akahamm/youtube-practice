@@ -15,81 +15,43 @@ button {
 input {
   padding: 2px 8px;
 }
-.navbar {
+.header {
   display: flex;
-  justify-content: center;
+  height: 4rem;
+  padding: 0.8em 1em;
   align-items: center;
   background-color: #000000;
-}
-.view {
-  display: flex;
-  justify-content: center;
+  color: white;
 }
 .logo {
   display: flex;
   align-items: center;
+  margin-right: 1em;
 }
-.logo-image {
+.image {
   padding: 8px 8px;
-  max-height: 40px;
-}
-.logo-text {
-  color: white;
-  font-size: 2rem;
 }
 .input {
-  margin: 0 10px 0 15px;
-  height: 1.5rem;
+  flex-basis: 100%;
+  font-size: 1.2rem;
+  outline: 0;
 }
-.search-image {
-  padding: 8px 0px;
-  max-height: 25px;
+.search img {
+  height: 40px;
+  padding: 0.5em;
 }
-.items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.item {
-  display: flex;
-  width: 580px;
-  /* border: 1px solid blue; */
-  cursor: pointer;
-  box-shadow: 3px 3px 5px 0px rgba(156, 156, 156, 1);
-  padding: 5px;
-  margin: 5px;
-}
-.description {
-  padding: 5px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.title {
-  color: black;
-  font-weight: 600;
-}
-.channel {
-  color: darkgray;
-}
+
 .content {
   display: flex;
-  flex-direction: column;
-  /* justify-content: space-evenly; */
+  /* flex-direction: column; */
 }
-.content-description-title {
-  padding: 5px 5px;
-  font-size: 1.5rem;
-  color: #000000;
-  font-weight: 600;
+.detail {
+  flex: 1 1 70%;
+  padding: 0 0.2em;
 }
-.content-description-channel {
-  padding: 5px 5px;
-  font-size: 1.2rem;
-  color: #000000;
-  font-weight: 600;
+.lists {
+  flex: 1 1 30%;
 }
-.content-description-text {
-  padding: 5px 5px;
-  color: darkgray;
+.description {
+  white-space: pre-wrap;
 }

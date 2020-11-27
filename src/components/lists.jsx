@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import Item from "./item";
+import styles from "./lists.module.css";
 
 class Lists extends Component {
   onSelect = (item) => {
@@ -11,9 +12,14 @@ class Lists extends Component {
 
   render() {
     return (
-      <ul className="items">
+      <ul className={styles.items}>
         {this.props.lists.map((item) => (
-          <Item key={item.etag} item={item} onSelect={this.onSelect}></Item>
+          <Item
+            key={item.etag}
+            item={item}
+            onSelect={this.onSelect}
+            display={this.props.display}
+          ></Item>
         ))}
       </ul>
     );
